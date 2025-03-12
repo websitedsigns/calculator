@@ -1,3 +1,104 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* index.css */
+
+/* Overall Body Style */
+body {
+    background: linear-gradient(135deg, #3a8e9f, #5859a6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* Calculator Container */
+  .calculator {
+    background-color: #333;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 320px;
+  }
+  
+  /* Display Area */
+  .display {
+    background-color: #444;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+  
+  .display input {
+    width: 100%;
+    background-color: transparent;
+    color: white;
+    font-size: 2.5rem;
+    text-align: right;
+    border: none;
+    outline: none;
+    font-weight: bold;
+  }
+  
+  /* Buttons */
+  button {
+    background-color: #555;
+    color: white;
+    border: none;
+    font-size: 2rem;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    width: 70px;
+    height: 70px;
+  }
+  
+  button:hover {
+    background-color: #666;
+  }
+  
+  button:active {
+    background-color: #777;
+  }
+  
+  /* Operator Buttons */
+  .operator {
+    background-color: #f29c11;
+    color: white;
+  }
+  
+  .operator:hover {
+    background-color: #f2872a;
+  }
+  
+  .operator:active {
+    background-color: #f37300;
+  }
+  
+  /* Special Buttons (Clear, Equals) */
+  .clear {
+    background-color: #e74c3c;
+  }
+  
+  .clear:hover {
+    background-color: #c0392b;
+  }
+  
+  .clear:active {
+    background-color: #9b2921;
+  }
+  
+  .equals {
+    background-color: #3498db;
+    grid-column: span 4;
+  }
+  
+  .equals:hover {
+    background-color: #2980b9;
+  }
+  
+  .equals:active {
+    background-color: #1f6c94;
+  }
+  
