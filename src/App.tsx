@@ -8,7 +8,7 @@ const App: React.FC = () => {
     if (value === '=') {
       try {
         setResult(eval(input).toString());
-      } catch (error) {
+      } catch {
         setResult('Error');
       }
     } else if (value === 'C') {
@@ -20,57 +20,67 @@ const App: React.FC = () => {
   };
 
   return (
-    <div style={{ textAlign: 'center', marginTop: '50px' }}>
-      <h1>React Calculator</h1>
-      <div>
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+      <h1 className="text-3xl font-bold mb-4">Mobile Calculator</h1>
+      <div className="bg-white p-6 rounded-lg shadow-lg w-80">
         <input
           type="text"
           value={input}
           readOnly
-          style={{ width: '200px', height: '40px', fontSize: '20px', marginBottom: '10px' }}
+          className="w-full h-12 text-right text-2xl border-2 border-gray-300 rounded-lg mb-4 px-2"
         />
-      </div>
-      <div>
-        <div>
-          <button onClick={() => handleButtonClick('7')} style={buttonStyle}>7</button>
-          <button onClick={() => handleButtonClick('8')} style={buttonStyle}>8</button>
-          <button onClick={() => handleButtonClick('9')} style={buttonStyle}>9</button>
-          <button onClick={() => handleButtonClick('/')} style={buttonStyle}>/</button>
+        <div className="grid grid-cols-4 gap-2">
+          {['7', '8', '9', '/'].map((value) => (
+            <button
+              key={value}
+              onClick={() => handleButtonClick(value)}
+              className="p-4 text-xl bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+            >
+              {value}
+            </button>
+          ))}
+          {['4', '5', '6', '*'].map((value) => (
+            <button
+              key={value}
+              onClick={() => handleButtonClick(value)}
+              className="p-4 text-xl bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+            >
+              {value}
+            </button>
+          ))}
+          {['1', '2', '3', '-'].map((value) => (
+            <button
+              key={value}
+              onClick={() => handleButtonClick(value)}
+              className="p-4 text-xl bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+            >
+              {value}
+            </button>
+          ))}
+          {['0', '.', 'C', '+'].map((value) => (
+            <button
+              key={value}
+              onClick={() => handleButtonClick(value)}
+              className="p-4 text-xl bg-blue-500 text-white rounded-lg hover:bg-blue-600"
+            >
+              {value}
+            </button>
+          ))}
+          <button
+            onClick={() => handleButtonClick('=')}
+            className="col-span-4 p-4 text-xl bg-green-500 text-white rounded-lg hover:bg-green-600"
+          >
+            =
+          </button>
         </div>
-        <div>
-          <button onClick={() => handleButtonClick('4')} style={buttonStyle}>4</button>
-          <button onClick={() => handleButtonClick('5')} style={buttonStyle}>5</button>
-          <button onClick={() => handleButtonClick('6')} style={buttonStyle}>6</button>
-          <button onClick={() => handleButtonClick('*')} style={buttonStyle}>*</button>
-        </div>
-        <div>
-          <button onClick={() => handleButtonClick('1')} style={buttonStyle}>1</button>
-          <button onClick={() => handleButtonClick('2')} style={buttonStyle}>2</button>
-          <button onClick={() => handleButtonClick('3')} style={buttonStyle}>3</button>
-          <button onClick={() => handleButtonClick('-')} style={buttonStyle}>-</button>
-        </div>
-        <div>
-          <button onClick={() => handleButtonClick('0')} style={buttonStyle}>0</button>
-          <button onClick={() => handleButtonClick('.')} style={buttonStyle}>.</button>
-          <button onClick={() => handleButtonClick('C')} style={buttonStyle}>C</button>
-          <button onClick={() => handleButtonClick('+')} style={buttonStyle}>+</button>
-        </div>
-        <div>
-          <button onClick={() => handleButtonClick('=')} style={{ ...buttonStyle, width: '200px' }}>=</button>
-        </div>
-      </div>
-      <div>
-        <h2>Result: {result}</h2>
+        {result && (
+          <div className="mt-4 text-right text-xl">
+            Result: <span className="font-bold">{result}</span>
+          </div>
+        )}
       </div>
     </div>
   );
-};
-
-const buttonStyle: React.CSSProperties = {
-  width: '50px',
-  height: '50px',
-  fontSize: '20px',
-  margin: '5px',
 };
 
 export default App;
