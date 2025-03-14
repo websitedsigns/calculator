@@ -1,5 +1,3 @@
-/* index.css */
-
 /* Overall Body Style */
 body {
     background: linear-gradient(135deg, #3a8e9f, #5859a6);
@@ -8,35 +6,47 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    font-family: Arial, sans-serif;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    padding: 10px;
   }
   
   /* Calculator Container */
   .calculator {
     background-color: #333;
-    padding: 30px;
-    border-radius: 12px;
+    padding: 20px;
+    border-radius: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    width: 320px;
+    width: 100%;
+    max-width: 320px; /* Fits iPhone screen width */
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
   }
   
   /* Display Area */
   .display {
-    background-color: #444;
+    background-color: #222;
     padding: 15px;
-    border-radius: 8px;
-    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: right;
   }
   
   .display input {
     width: 100%;
     background-color: transparent;
-    color: white;
+    color: rgb(101, 200, 92);
     font-size: 2.5rem;
-    text-align: right;
     border: none;
     outline: none;
     font-weight: bold;
+    text-align: right;
+  }
+  
+  /* Button Grid */
+  .button-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
   }
   
   /* Buttons */
@@ -44,16 +54,19 @@ body {
     background-color: #555;
     color: white;
     border: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     padding: 20px;
-    border-radius: 8px;
-    margin: 8px;
+    border-radius: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
-    width: 70px;
-    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    box-sizing: border-box;
   }
   
+  /* Hover and Active States for Buttons */
   button:hover {
     background-color: #666;
   }
@@ -76,7 +89,7 @@ body {
     background-color: #f37300;
   }
   
-  /* Special Buttons (Clear, Equals) */
+  /* Clear Button */
   .clear {
     background-color: #e74c3c;
   }
@@ -89,9 +102,10 @@ body {
     background-color: #9b2921;
   }
   
+  /* Equals Button */
   .equals {
     background-color: #3498db;
-    grid-column: span 4;
+    grid-column: span 2; /* Make the equals button wider */
   }
   
   .equals:hover {
@@ -102,3 +116,24 @@ body {
     background-color: #1f6c94;
   }
   
+  /* Zero Button */
+  .zero {
+    grid-column: span 2; /* Make the zero button wider */
+  }
+  
+  /* Media Query for Smaller Screens (e.g., iPhone SE) */
+  @media (max-width: 375px) {
+    .calculator {
+      padding: 15px;
+      max-width: 280px; /* Adjust for smaller screens */
+    }
+  
+    .display input {
+      font-size: 2rem; /* Smaller font size for smaller screens */
+    }
+  
+    button {
+      font-size: 1.2rem; /* Smaller font size for buttons */
+      padding: 15px; /* Smaller padding for buttons */
+    }
+  }
